@@ -1,42 +1,49 @@
 #include "sort.h"
 
 /**
- * cocktail_sort_list - Implementation of cocktail sort algorithm
- * @list: doubly linked list 
+ * front_sweep - traverses the list and sort it
+ * @list: doubly linked list
+ * @head: head of list
+ * Return: the last node in the list
  */
-listint_t *front_sweep(listint_t **list, listint_t *head);
-int back_sweep(listint_t **list, listint_t *head);
 
 listint_t *front_sweep(listint_t **list, listint_t *head)
 {
     listint_t *tmp;
 
     while (list && head->next)
+    {
+        if (head->n > head->next->n)
         {
-            if (head->n > head->next->n)
-            {
-                tmp = head->next;
-                head->next = tmp->next;
-                tmp->prev = head->prev;
+            tmp = head->next;
+            head->next = tmp->next;
+            tmp->prev = head->prev;
 
-                if (tmp->next != NULL)
-                    tmp->next->prev = head;
+            if (tmp->next != NULL)
+                tmp->next->prev = head;
 
-                if (head->prev != NULL)
-                    head->prev->next = tmp;
+            if (head->prev != NULL)
+                head->prev->next = tmp;
 
-                head->prev = tmp;
-                tmp->next = head;
+            head->prev = tmp;
+            tmp->next = head;
 
-                if (tmp->prev == NULL)
-                    *list = tmp;
-                print_list(*list);
-            }
-            else
-                head = head->next;
+            if (tmp->prev == NULL)
+                *list = tmp;
+            print_list(*list);
         }
-        return (head);
+        else
+            head = head->next;
+    }
+    return (head);
 }
+
+/**
+ * back_sweep - reverses and sorts the the doubly linked list
+ * @list: doubly linked list
+ * @head: head of the list
+ * Return: return an int indicating if any node were swapped
+ */
 
 int back_sweep(listint_t **list, listint_t *head)
 {
@@ -74,6 +81,12 @@ int back_sweep(listint_t **list, listint_t *head)
         }
         return (swap);
 }
+
+/**
+ * cocktail_sort_list - Implementation of cocktail sort algorithm
+ * @list: doubly linked list 
+ */
+
 void cocktail_sort_list(listint_t **list)
 {
     int swap;
