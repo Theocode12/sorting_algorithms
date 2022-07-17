@@ -4,18 +4,14 @@
  * cocktail_sort_list - Implementation of cocktail sort algorithm
  * @list: doubly linked list 
  */
+listint_t *front_sweep(listint_t **list, listint_t *head);
+int back_sweep(listint_t **list, listint_t *head);
 
-void cocktail_sort_list(listint_t **list)
+listint_t *front_sweep(listint_t **list, listint_t *head)
 {
-    int swap;
-    listint_t *head, *tmp;
+    listint_t *tmp;
 
-    swap = 1;
-    while (swap)
-    {
-        head = *list;
-        swap = 0;
-        while (list && head->next)
+    while (list && head->next)
         {
             if (head->n > head->next->n)
             {
@@ -34,15 +30,20 @@ void cocktail_sort_list(listint_t **list)
 
                 if (tmp->prev == NULL)
                     *list = tmp;
-                swap = 1;
                 print_list(*list);
             }
             else
                 head = head->next;
         }
+        return (head);
+}
 
-        swap = 0;
-        while (head->prev)
+int back_sweep(listint_t **list, listint_t *head)
+{
+    listint_t *tmp;
+    int swap = 0;
+
+    while (head->prev)
         {
             if (head->n < head->prev->n)
             {
@@ -71,5 +72,21 @@ void cocktail_sort_list(listint_t **list)
             else
                 head = head->prev;
         }
+        return (swap);
+}
+void cocktail_sort_list(listint_t **list)
+{
+    int swap;
+    listint_t *head;
+
+    swap = 1;
+    while (swap)
+    {
+        head = *list;
+        head = front_sweep(list, head);
+        
+        swap = 0;
+        swap = back_sweep(list, head);
+        
     }
 }
