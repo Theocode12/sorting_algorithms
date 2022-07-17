@@ -32,7 +32,7 @@ int qs_partition(int *array, int lb, int up, int size)
     p_index = lb;
     for (i = lb; i < up; i++)
     {
-        if (array[i] < pivot)
+        if (array[i] <= pivot)
         {
             swap(array, i, p_index);
             if (p_index != i)
