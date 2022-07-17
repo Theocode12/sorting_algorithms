@@ -11,7 +11,7 @@ listint_t *front_sweep(listint_t **list, listint_t *head)
 {
     listint_t *tmp;
 
-    while (list && head->next)
+    while (head->next)
     {
         if (head->n > head->next->n)
         {
@@ -93,13 +93,11 @@ void cocktail_sort_list(listint_t **list)
     listint_t *head;
 
     swap = 1;
-    while (swap)
+    while (list && swap)
     {
+        swap = 0;
         head = *list;
         head = front_sweep(list, head);
-        
-        swap = 0;
         swap = back_sweep(list, head);
-        
     }
 }
