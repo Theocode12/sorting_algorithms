@@ -43,6 +43,9 @@ void heap_sort(int *array, size_t size)
 {
     int last_parent_idx, i, tmp;
 
+	if (!array || size < 2)
+        return;
+
     last_parent_idx = ((int)size - 1) / 2;
     for (i = last_parent_idx; i >= 0; i--)
 	{
