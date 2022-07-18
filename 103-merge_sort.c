@@ -52,6 +52,7 @@ void m_sort(int *array, int lb, int ub, int *s_array)
     printf("lb = %d, ub = %d\n", lb, ub);
     m_sort(array, lb, mid, s_array);
     m_sort(array, mid + 1, ub, s_array);
+    merge(array, lb, mid, ub, s_array);
     printf("here\n");
 }
 
