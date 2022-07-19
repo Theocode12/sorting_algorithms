@@ -11,14 +11,14 @@
 
 void print_merge(char *str, int *array, int lb, int ub)
 {
-    int i;
+	int i;
 
-    printf("[%s]:", str);
-    for (i = lb; i < ub; i++)
-    {
-        printf(" %d,", array[i]);
-    }
-    printf(" %d\n", array[i]);
+	printf("[%s]:", str);
+	for (i = lb; i < ub; i++)
+	{
+		printf(" %d,", array[i]);
+	}
+	printf(" %d\n", array[i]);
 }
 
 /**
@@ -32,28 +32,28 @@ void print_merge(char *str, int *array, int lb, int ub)
 
 void merge(int *array, int lb, int mid, int ub, int *s_array)
 {
-    int i = lb, j = mid + 1, k = lb;
+	int i = lb, j = mid + 1, k = lb;
 
-    printf("Merging...\n");
-    print_merge("left", array, lb, mid);
-    print_merge("right", array, j, ub);
-    while (i <= mid && j <= ub)
-    {        
-        if (array[i] <= array[j])
-            s_array[k++] = array[i++];
-        else
-            s_array[k++] = array[j++];
-    }
+	printf("Merging...\n");
+	print_merge("left", array, lb, mid);
+	print_merge("right", array, j, ub);
+	while (i <= mid && j <= ub)
+	{
+		if (array[i] <= array[j])
+			s_array[k++] = array[i++];
+		else
+			s_array[k++] = array[j++];
+	}
 
-    while(i <= mid)
-        s_array[k++] = array[i++];
+	while (i <= mid)
+		s_array[k++] = array[i++];
 
-    while(j <= ub)
-        s_array[k++] = array[j++];
+	while (j <= ub)
+		s_array[k++] = array[j++];
 
-    for (i = lb; i <= ub; i++)
-        array[i] = s_array[i];
-    print_merge("Done", array, lb, ub);
+	for (i = lb; i <= ub; i++)
+		array[i] = s_array[i];
+	print_merge("Done", array, lb, ub);
 }
 
 /**
@@ -66,15 +66,15 @@ void merge(int *array, int lb, int mid, int ub, int *s_array)
 
 void m_sort(int *array, int lb, int ub, int *s_array)
 {
-    int mid;
+	int mid;
 
-    if (ub <= lb)
-        return;
+	if (ub <= lb)
+		return;
 
-    mid = (lb + ub - 1) / 2;
-    m_sort(array, lb, mid, s_array);
-    m_sort(array, mid + 1, ub, s_array);
-    merge(array, lb, mid, ub, s_array);
+	mid = (lb + ub - 1) / 2;
+	m_sort(array, lb, mid, s_array);
+	m_sort(array, mid + 1, ub, s_array);
+	merge(array, lb, mid, ub, s_array);
 }
 
 /**
@@ -85,15 +85,15 @@ void m_sort(int *array, int lb, int ub, int *s_array)
 
 void merge_sort(int *array, size_t size)
 {
-    int *s_array;
+	int *s_array;
 
-    if (!array || size < 2)
-        return;
+	if (!array || size < 2)
+		return;
 
-    s_array = malloc(size * sizeof(int));
-    if (!s_array)
-        return;
+	s_array = malloc(size * sizeof(int));
+	if (!s_array)
+		return;
 
-    m_sort(array, 0, size - 1, s_array);
-    free(s_array);
+	m_sort(array, 0, size - 1, s_array);
+	free(s_array);
 }
