@@ -70,7 +70,7 @@ void q_sort_algo(int *array, int lb, int up, size_t size)
 }
 
 /**
- * quick_sort : quick sort
+ * quick_sort - quick sort
  * @array: array
  * @size: size of array
  */
