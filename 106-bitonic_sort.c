@@ -7,6 +7,7 @@
  * @low: lower boundary
  * @high: upper boundary
  */
+
 void print_sequence(int *array, int low, int high)
 {
 	char *sep;
