@@ -12,9 +12,9 @@ void insertion_sort_list(listint_t **list)
 	if (!list)
 		return;
 
-	for(start = (*list); start; start = start->next)
+	for (start = (*list); start; start = start->next)
 	{
-		while(start->next && start->next->n < start->n)
+		while (start->next && start->next->n < start->n)
 		{
 			rev = start->next;
 			start->next = rev->next;
