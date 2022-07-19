@@ -1,4 +1,5 @@
 #include "sort.h"
+
 /**
  * swap - swap the elements in the array
  * @array: array
@@ -17,10 +18,10 @@ void swap(int *array, int curr_index, int p_index)
 
 /**
  * qs_partition - partitions the array
- * @array: array 
- * @lb: lower bound 
- * @up: upper bound  
- * @size: size of array 
+ * @array: array
+ * @lb: lower bound
+ * @up: upper bound
+ * @size: size of array
  * Return: pivot index
  */
 
@@ -43,7 +44,7 @@ int qs_partition(int *array, int lb, int up, int size)
     swap(array, i, p_index);
     if (p_index != i)
         print_array(array, size);
-    
+
     return p_index;
 }
 
