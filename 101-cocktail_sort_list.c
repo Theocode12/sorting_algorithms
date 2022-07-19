@@ -51,35 +51,35 @@ int back_sweep(listint_t **list, listint_t *head)
 	int swap = 0;
 
 	while (head->prev)
+	{
+		if (head->n < head->prev->n)
 		{
-			if (head->n < head->prev->n)
+			tmp = head->prev;
+			head->prev = tmp->prev;
+			tmp->next = head->next;
+
+			if (head->next != NULL)
 			{
-				tmp = head->prev;
-				head->prev = tmp->prev;
-				tmp->next = head->next;
-
-				if (head->next != NULL)
-				{
-					head->next->prev = tmp;
-				}
-
-				if (tmp->prev != NULL)
-				{
-					tmp->prev->next = head;
-				}
-
-				head->next = tmp;
-				tmp->prev = head;
-
-				if (head->prev == NULL)
-					*list = head;
-				swap = 1;
-				print_list(*list);
+				head->next->prev = tmp;
 			}
-			else
-				head = head->prev;
+
+			if (tmp->prev != NULL)
+			{
+				tmp->prev->next = head;
+			}
+
+			head->next = tmp;
+			tmp->prev = head;
+
+			if (head->prev == NULL)
+				*list = head;
+			swap = 1;
+			print_list(*list);
 		}
-		return (swap);
+		else
+			head = head->prev;
+	}
+	return (swap);
 }
 
 /**

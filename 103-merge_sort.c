@@ -57,7 +57,7 @@ void merge(int *array, int lb, int mid, int ub, int *s_array)
 }
 
 /**
- * @m_sort - Implementation of merge sort algo
+ * m_sort - Implementation of merge sort algo
  * @array: array to be split by recursion
  * @lb: lower bound
  * @ub: upper bound

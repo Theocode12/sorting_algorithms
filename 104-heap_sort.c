@@ -24,7 +24,7 @@ void swap(int *array, int curr_index, int p_index)
  * @t_size: Total size of array
  */
 
-void heapify (int *array, int size, int parent_idx, int t_size)
+void heapify(int *array, int size, int parent_idx, int t_size)
 {
 	int largest_idx, lt_child_idx, rt_child_idx, tmp;
 
@@ -50,7 +50,7 @@ void heapify (int *array, int size, int parent_idx, int t_size)
 
 /**
  * heap_sort - Implementation of heap_sort algorithm
- * @array: array of integers 
+ * @array: array of integers
  * @size: size of array
  */
 

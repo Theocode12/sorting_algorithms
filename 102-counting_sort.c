@@ -23,8 +23,8 @@ int _max(int *array, size_t size)
 
 /**
  * counting_sort - Implementation of counting sort algorithm
- * @array - array of integers
- * @size - size of the array
+ * @array: array of integers
+ * @size: size of the array
  */
 
 void counting_sort(int *array, size_t size)
