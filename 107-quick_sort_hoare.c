@@ -1,5 +1,5 @@
 #include "sort.h"
-
+#include <stdlib.h>
 
 /**
  * partition - finds the partition for the quicksort using the Hoare scheme
