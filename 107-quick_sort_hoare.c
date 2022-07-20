@@ -1,6 +1,5 @@
 #include "sort.h"
-#include <stdio.h>
-#include <stdlib.h>
+
 
 /**
  * partition - finds the partition for the quicksort using the Hoare scheme
@@ -22,7 +21,7 @@ size_t partition(int *array, int lo, int  hi, int size)
 			lo++;
 		while (array[hi] > pivot)
 			hi--;
-        
+		
 		if (lo <= hi)
 		{
 			if (lo != hi)
