@@ -10,6 +10,7 @@
  *
  * Return: index of the partition
  */
+
 size_t partition(int *array, int lo, int  hi, int size)
 {
 	int swap, pivot;
@@ -47,6 +48,7 @@ size_t partition(int *array, int lo, int  hi, int size)
  *
  * Return: void
  */
+
 void quicksort(int *array, ssize_t lo, ssize_t hi, size_t size)
 {
 	ssize_t pivot;
@@ -68,6 +70,7 @@ void quicksort(int *array, ssize_t lo, ssize_t hi, size_t size)
  *
  * Return: void
  */
+
 void quick_sort_hoare(int *array, size_t size)
 {
 	if (array == NULL || size < 2)
