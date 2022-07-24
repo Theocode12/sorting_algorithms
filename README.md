@@ -14,7 +14,6 @@ An introductory project on:
 
 **[print_list.c](print_list.c)** - function that prints a list.
 
-**[print_deck.c](print_deck.c)** - function that prints a deck of cards.
 ### Mandatory
 **[0-bubble_sort.c](0-bubble_sort.c)** - function that sorts an array of integers in ascending order using the bubble sort algorithm.
 
